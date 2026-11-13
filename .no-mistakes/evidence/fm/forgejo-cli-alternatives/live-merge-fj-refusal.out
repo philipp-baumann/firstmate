@@ -1,0 +1,6 @@
+### live fm-pr-merge.sh fj refusal (project=forge=forgejo:fj, host codefloe.com has a real fj login)
+error: merging a Forgejo pull request through 'fj' is refused: forgejo-cli exposes no authenticated request passthrough, its pull request views print no commit id, and its own merge request is built with head_commit_id fixed to null, so it can neither read this pull request's head nor bind a merge to it; install tea or fgj, log one in for codefloe.com, and re-run (docs/forgejo-cli-alternatives.md)
+exit=1
+--- recorded pr= ?
+--- armed poll?
+no poll armed

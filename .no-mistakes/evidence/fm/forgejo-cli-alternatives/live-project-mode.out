@@ -1,0 +1,7 @@
+### fm-project-mode.sh live queries (FM_HOME=/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-lab.rYWMVs)
+tea-proj     --forge-cli=auto  --forge=forgejo
+fgj-proj     --forge-cli=fgj  --forge=forgejo
+fj-proj      --forge-cli=fj  --forge=forgejo
+gerrit-proj  --forge-cli=auto  --forge=gerrit
+--- malformed forgejo CLI suffix
+exit=3

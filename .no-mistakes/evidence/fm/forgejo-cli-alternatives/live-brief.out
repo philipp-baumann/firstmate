@@ -1,0 +1,13 @@
+### live ship-brief rendering (FM_HOME=/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-lab.rYWMVs)
+--- fgj-proj (forge=forgejo:fgj)
+29:3. Use fgj for Forgejo operations and chrome-devtools-axi for browser operations.
+99:When it is implemented and committed, push your branch and open a PR with `fgj` that is ready for review, not a draft.
+100:Before you report done, read the PR back from the forge and confirm it is not a draft (`fgj api repos/<owner>/<repo>/pulls/<number> --hostname <host>` must show `draft` as false, where <owner>/<repo>, <number>, and <host> come from your PR URL); Forgejo marks a draft by a work-in-progress title prefix such as `WIP:`, so if it is a draft, remove that prefix with `fgj api repos/<owner>/<repo>/pulls/<number> --hostname <host> -X PATCH -f title='<title without the prefix>'`.
+rc=0
+--- tea-proj (bare forge=forgejo, clone origin codefloe.com where real tea holds a login)
+29:3. Use tea for Forgejo operations and chrome-devtools-axi for browser operations.
+99:When it is implemented and committed, push your branch and open a PR with `tea` that is ready for review, not a draft.
+--- fj-proj (forge=forgejo:fj) refusal
+error: project 'fj-proj' resolves to forgejo-cli (fj), but fj exposes no authenticated request passthrough and cannot bind a merge to a verified head, so firstmate cannot ship this task; register forge=forgejo:tea or forge=forgejo:fgj, or install and log in a supported Forgejo CLI for this project's host (docs/forgejo-cli-alternatives.md)
+exit=1
+no brief left behind

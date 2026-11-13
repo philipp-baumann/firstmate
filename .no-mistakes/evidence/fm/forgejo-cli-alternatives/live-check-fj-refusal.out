@@ -1,0 +1,5 @@
+### live fm-pr-check.sh fj arming refusal (project=forge=forgejo:fj, host codefloe.com)
+error: watching a Forgejo pull request through 'fj' is refused: forgejo-cli exposes no authenticated request passthrough and prints only localized prose, so it cannot report whether this pull request merged, and firstmate will not watch an event it cannot read (docs/forgejo-cli-alternatives.md); install tea or fgj, log one in for codefloe.com, and re-run
+exit=1
+--- armed?
+no check armed

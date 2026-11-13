@@ -1,0 +1,10 @@
+   Outside the worktree, write only that task material and the status and steering-inbox records authorized below.
+   Leave the worktree clean before reporting done.
+3. Use tea for Forgejo operations and chrome-devtools-axi for browser operations.
+4. Report status by appending one line:
+   `echo "{state} [at=<epoch>]: {one short line}" >> '/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-lab.rYWMVs/state/live-tea.status' && { [ ! -e '/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-lab.rYWMVs/config/fleet-ledger' ] || '/Users/philipp/.no-mistakes/worktrees/a81ff7279650/01M7B3VDF29XXTMAETXJAY73GK/bin/fm-fleet-ledger.sh' appended '/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-lab.rYWMVs/config' '/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-lab.rYWMVs/state/live-tea.status' >/dev/null 2>&1 || true; }`
+This task ships **direct-PR**: you raise the PR yourself, without the no-mistakes pipeline.
+The task is complete only when committed on your branch.
+When it is implemented and committed, push your branch and open a PR with `tea` that is ready for review, not a draft.
+Before you report done, read the PR back from the forge and confirm it is not a draft (`tea api --repo <owner>/<repo> /repos/{owner}/{repo}/pulls/<number>` must show `draft` as false, where <owner>/<repo> and <number> come from your PR URL); Forgejo marks a draft by a work-in-progress title prefix such as `WIP:`, so if it is a draft, remove that prefix with `tea pulls edit <number> --repo <owner>/<repo> --title '<title without the prefix>'`.
+A draft cannot be merged, so a done report on one leaves the merge unasked.

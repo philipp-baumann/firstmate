@@ -1,0 +1,14 @@
+### live fm-pr-poll.sh arities and preference routing
+--- six-argument --validated auto (should resolve tea for the real codefloe.com login)
+exit=0
+++ tea login list --output json
+++ tea api --login codefloe.com --repo o/r '/repos/{owner}/{repo}/pulls/1'
+stdout=[]
+--- seven-argument fj preference (fj is resolved but not API-capable: silent)
+exit=0
+tea/fgj invocations in trace: 0
+stdout=[]
+--- seven-argument explicit tea preference
+exit=0
+++ tea api --login codefloe.com --repo o/r '/repos/{owner}/{repo}/pulls/1'
+stdout=[]

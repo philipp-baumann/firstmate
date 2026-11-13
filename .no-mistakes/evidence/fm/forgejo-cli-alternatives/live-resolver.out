@@ -1,0 +1,8 @@
+### live resolver against the machine's real tea/fgj/fj stores
+host=codefloe.com                     preference=auto  => cli=tea login=codefloe.com api_capable=yes
+host=codefloe.com                     preference=tea   => cli=tea login=codefloe.com api_capable=yes
+host=codefloe.com                     preference=fgj   => REFUSED
+host=codefloe.com                     preference=fj    => cli=fj login=codefloe.com api_capable=no
+host=git.dse.allianceswisspass.ch     preference=auto  => cli=tea login=work-forgejo api_capable=yes
+host=example.invalid                  preference=auto  => REFUSED
+host=codefloe.com                     preference=bogus => REFUSED
