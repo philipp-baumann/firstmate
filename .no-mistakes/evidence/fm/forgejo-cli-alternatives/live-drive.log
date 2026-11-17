@@ -1,0 +1,94 @@
+===== S1: the registry parser refuses malformed Forgejo CLI bindings
+
+-- bin/fm-project-mode.sh --forge-cli proj-broken
+refused: unknown Forgejo CLI "fgg" in the binding "forge=forgejo:fgg" registered for proj-broken in /tmp/fm-cli-lab.klDDCJ/data/projects.md; the accepted Forgejo CLIs are forge=forgejo:tea, forge=forgejo:fgj, and forge=forgejo:fj, or forge=forgejo alone for tea; correct the registry entry
+exit=3
+
+-- bin/fm-project-mode.sh --forge-cli proj-empty
+refused: unknown Forgejo CLI "" in the binding "forge=forgejo:" registered for proj-empty in /tmp/fm-cli-lab.klDDCJ/data/projects.md; the accepted Forgejo CLIs are forge=forgejo:tea, forge=forgejo:fgj, and forge=forgejo:fj, or forge=forgejo alone for tea; correct the registry entry
+exit=3
+
+-- bin/fm-project-mode.sh --forge-cli proj-fj
+fj
+exit=0
+
+-- bin/fm-project-mode.sh --forge-cli proj-tea
+tea
+exit=0
+
+-- bin/fm-project-mode.sh --forge-cli proj-plain
+auto
+exit=0
+
+-- bin/fm-project-mode.sh --forge-cli proj-local
+refused: proj-local is registered local-only with forge=forgejo in /tmp/fm-cli-lab.klDDCJ/data/projects.md; local-only publishes nothing, so a forge has no meaning there, and its landing would fast-forward local main with content the review server has never seen; register no-mistakes or direct-PR to publish through the forge, or drop the forge token to keep the project local
+exit=3
+
+-- unknown project (fallback must stay auto)
+warn: project "proj-unknown" not in registry; defaulting to no-mistakes off
+auto
+exit=0
+
+-- absent registry (fallback must stay auto)
+warn: no registry at /tmp/fm-cli-lab.klDDCJ/noreg/data/projects.md; defaulting proj-anything to no-mistakes off
+auto
+exit=0
+
+===== S2: arming refuses a malformed binding (forge=forgejo:fgg), arms nothing, never runs tea
+error: watching a Forgejo pull request at forgejo.example cannot resolve the project's registered Forgejo CLI: refused: unknown Forgejo CLI "fgg" in the binding "forge=forgejo:fgg" registered for proj-broken in /tmp/fm-cli-lab.klDDCJ/homeBroken/data/projects.md; the accepted Forgejo CLIs are forge=forgejo:tea, forge=forgejo:fgj, and forge=forgejo:fj, or forge=forgejo alone for tea; correct the registry entry; no watch is armed and no pull request state is recorded
+exit=1
+tea invocations: 0
+state dir: task-broken.meta 
+
+===== S3: the merge path refuses a malformed binding (forge=forgejo:fgg), records nothing, never runs tea
+error: merging a Forgejo pull request at forgejo.example cannot resolve the project's registered Forgejo CLI: refused: unknown Forgejo CLI "fgg" in the binding "forge=forgejo:fgg" registered for proj-broken in /tmp/fm-cli-lab.klDDCJ/homeBroken/data/projects.md; the accepted Forgejo CLIs are forge=forgejo:tea, forge=forgejo:fgj, and forge=forgejo:fj, or forge=forgejo alone for tea; correct the registry entry; nothing is recorded and no merge is attempted
+exit=1
+tea invocations: 0
+meta after: 1 pr= line(s)
+
+===== S4: adversarial - other parser refusals propagate too (not special-cased to a bad CLI name)
+error: watching a Forgejo pull request at forgejo.example cannot resolve the project's registered Forgejo CLI: refused: unknown Forgejo CLI "" in the binding "forge=forgejo:" registered for proj-empty in /tmp/fm-cli-lab.klDDCJ/homeEmpty/data/projects.md; the accepted Forgejo CLIs are forge=forgejo:tea, forge=forgejo:fgj, and forge=forgejo:fj, or forge=forgejo alone for tea; correct the registry entry; no watch is armed and no pull request state is recorded
+exit=1
+tea invocations: 0
+state dir: task-empty.meta 
+error: watching a Forgejo pull request at forgejo.example cannot resolve the project's registered Forgejo CLI: refused: proj-local is registered local-only with forge=forgejo in /tmp/fm-cli-lab.klDDCJ/homeLocal/data/projects.md; local-only publishes nothing, so a forge has no meaning there, and its landing would fast-forward local main with content the review server has never seen; register no-mistakes or direct-PR to publish through the forge, or drop the forge token to keep the project local; no watch is armed and no pull request state is recorded
+exit=1
+tea invocations: 0
+state dir: task-local.meta 
+
+===== S5: fallback preserved - a binding that names no CLI still arms through tea
+armed: state/task-plain.check.sh
+exit=0
+tea invocations: 1
+  tea> tea login list --output json
+state dir: contributions.check.sh contributions.check-trust task-plain.check.sh task-plain.meta task-plain.pr-poll task-plain.pr-poll-registration 
+
+-- and a binding that names tea explicitly still arms through tea
+armed: state/task-tea.check.sh
+exit=0
+tea invocations: 1
+  tea> tea login list --output json
+state dir: contributions.check.sh contributions.check-trust task-tea.check.sh task-tea.meta task-tea.pr-poll task-tea.pr-poll-registration 
+
+-- and an absent registry still arms through tea
+fm-contributions: data directory unavailable
+contributions: observation not armed; coverage is unconfirmed
+armed: state/task-fresh.check.sh
+exit=0
+tea invocations: 1
+  tea> tea login list --output json
+state dir: task-fresh.check.sh task-fresh.meta task-fresh.pr-poll task-fresh.pr-poll-registration 
+
+===== S6: the read path (teardown / crew-state) keeps the auto fallback and does not abort
+
+-- teardown-shape read (malformed binding): fm_pr_forgejo_cli_preference "$META" || true, then fm_pr_forgejo_read_record
+FM_PR_FORGEJO_CLI_PREFERENCE=auto
+record: merged=true state=closed
+exit=0
+tea invocations: 2
+
+-- teardown-shape read (valid binding naming no CLI): fm_pr_forgejo_cli_preference "$META" || true, then fm_pr_forgejo_read_record
+FM_PR_FORGEJO_CLI_PREFERENCE=auto
+record: merged=true state=closed
+exit=0
+tea invocations: 2
