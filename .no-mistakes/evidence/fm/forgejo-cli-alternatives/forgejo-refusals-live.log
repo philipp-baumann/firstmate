@@ -1,0 +1,33 @@
+# Live refusals on the real instance (lab home /var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-lab.LpcHBq)
+login state read live: tea -> https://codefloe.com,https://git.dse.allianceswisspass.ch
+                       fj  whoami --host codefloe.com -> exit 0
+                       fgj auth token --hostname codefloe.com -> exit 1 (1 = no login)
+
+
+## B. arming refuses an fgj-registered project when fgj holds no login; it does NOT fall back to tea (which would have armed)
+error: watching a Forgejo pull request at codefloe.com requires a Forgejo CLI holding a login for that host. Expected: 'fgj', the CLI the project's registry binding names. Log that CLI in, or change the project's registry binding in data/projects.md (forge=forgejo:tea or forge=forgejo:fgj); forgejo-cli's fj cannot serve this path (docs/forgejo-cli-alternatives.md)
+exit=1  artifacts now: task-fgj.meta 
+
+## C. the merge refuses an fj-registered project by name, before any merge call, and records nothing
+error: merging a Forgejo pull request through 'fj' is refused: forgejo-cli exposes no authenticated request passthrough, its pull request views print no commit id, and its own merge request is built with head_commit_id fixed to null, so it can neither read this pull request's head nor bind a merge to it; the project's registry binding names forge=forgejo:fj, so change it to forge=forgejo:tea or forge=forgejo:fgj (or drop the CLI to leave the project on tea) in data/projects.md and log that CLI in for codefloe.com (docs/forgejo-cli-alternatives.md)
+exit=1  pr= lines in task-fj.meta: 0
+instance record after the refused merge: {"state":"closed","merged":true,"head":"81def787f626fb9677a865b038a21eedfa5ef76c"}
+
+## A (re-run, captured exit code). arming refuses an fj-registered project by name
+error: watching a Forgejo pull request through 'fj' is refused: forgejo-cli exposes no authenticated request passthrough and prints only localized prose, so it cannot report whether this pull request merged, and firstmate will not watch an event it cannot read (docs/forgejo-cli-alternatives.md); the project's registry binding names forge=forgejo:fj, so change it to forge=forgejo:tea or forge=forgejo:fgj (or drop the CLI to leave the project on tea) in data/projects.md and log that CLI in for codefloe.com
+exit=1  artifacts now: task-fj.meta 
+
+## D. terminal / teardown Forgejo read (the bounded subprocess bin/fm-crew-state.sh and bin/fm-teardown.sh run) with each preference
+  fm_pr_forgejo_read_record codefloe.com spectral-cockpit/ameisen 41 auto -> state=closed merged=true head=81def787f626fb9677a865b038a21eedfa5ef76c exit=0
+  fm_pr_forgejo_read_record codefloe.com spectral-cockpit/ameisen 41 tea  -> state=closed merged=true head=81def787f626fb9677a865b038a21eedfa5ef76c exit=0
+  fm_pr_forgejo_read_record codefloe.com spectral-cockpit/ameisen 41 fj   -> honest unknown (nothing printed) exit=1
+
+## E. a malformed registry binding (forge=forgejo:bogus) fails closed on arming and on merge; tea is logged in, so only the refusal keeps both off it
+  error: watching a Forgejo pull request at codefloe.com cannot resolve the project's registered Forgejo CLI: refused: unknown Forgejo CLI "bogus" in the binding "forge=forgejo:bogus" registered for bad in /var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-lab.LpcHBq/data/projects.md; the accepted Forgejo CLIs are forge=forgejo:tea, forge=forgejo:fgj, and forge=forgejo:fj, or forge=forgejo alone for tea; correct the registry entry; no watch is armed and no pull request state is recorded
+  arming exit=1  artifacts: task-bad.meta 
+  error: merging a Forgejo pull request at codefloe.com cannot resolve the project's registered Forgejo CLI: refused: unknown Forgejo CLI "bogus" in the binding "forge=forgejo:bogus" registered for bad in /var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-lab.LpcHBq/data/projects.md; the accepted Forgejo CLIs are forge=forgejo:tea, forge=forgejo:fgj, and forge=forgejo:fj, or forge=forgejo alone for tea; correct the registry entry; nothing is recorded and no merge is attempted
+  merge exit=1  (the 1 pr= line here came from the fixture meta itself, not from the merge)
+
+## E-corrected. merge refusal on a meta with NO pr= record (nothing was recorded before it: 0 pr= lines)
+  error: merging a Forgejo pull request at codefloe.com cannot resolve the project's registered Forgejo CLI: refused: unknown Forgejo CLI "bogus" in the binding "forge=forgejo:bogus" registered for bad in /var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-lab.LpcHBq/data/projects.md; the accepted Forgejo CLIs are forge=forgejo:tea, forge=forgejo:fgj, and forge=forgejo:fj, or forge=forgejo alone for tea; correct the registry entry; nothing is recorded and no merge is attempted
+  merge exit=1  pr= lines recorded after the refused merge: 0

@@ -1,0 +1,17 @@
+# Live: registered Forgejo CLI in the project registry (real bin/fm-project-mode.sh, real tea/fgj/fj on PATH)
+# registry (/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-lab.LpcHBq/data/projects.md):
+  # Projects
+  
+  - ameisen [no-mistakes forge=forgejo] - live fixture (added 2026-11-21)
+  - agents-cfg [no-mistakes forge=forgejo:fgj] - live fixture (added 2026-11-21)
+  - fjproj [no-mistakes forge=forgejo:fj] - live fixture (added 2026-11-21)
+  - bad [no-mistakes forge=forgejo:bogus] - fixture
+
+fm-project-mode.sh --forge-cli ameisen    -> auto   (--forge -> forgejo)
+fm-project-mode.sh --forge-cli agents-cfg -> fgj   (--forge -> forgejo)
+fm-project-mode.sh --forge-cli fjproj     -> fj   (--forge -> forgejo)
+fm-project-mode.sh --forge-cli teaproj    -> auto   (--forge -> none)
+
+fm-project-mode.sh --forge-cli bad  (registry: forge=forgejo:bogus)
+exit=3
+teaproj -> --forge-cli=tea --forge=forgejo

@@ -1,0 +1,28 @@
+# Live arming (bin/fm-pr-check.sh) against the real codefloe.com instance, lab home /var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-lab.LpcHBq
+
+## auto (project 'ameisen' registered forge=forgejo) -> arms through tea
+sidecar /var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-lab.LpcHBq/state/task-auto.pr-poll (5 lines = auto):
+       1	forgejo
+       2	https://codefloe.com/philipp-baumann/agentic-tooling-and-configs/pulls/415
+       3	codefloe.com
+       4	philipp-baumann/agentic-tooling-and-configs
+       5	415
+armed copy of the watcher, run the way bin/fm-watch.sh runs it:
+  output='' exit=0
+
+## merged PR arming ('task-merged', bare forge=forgejo) -> armed copy wakes on the real merged record
+       1	forgejo
+       2	https://codefloe.com/spectral-cockpit/ameisen/pulls/41
+       3	codefloe.com
+       4	spectral-cockpit/ameisen
+       5	41
+  output='merged' exit=0
+
+## explicit forge=forgejo:tea ('teaproj') -> sidecar records the CLI, arms through tea
+       1	forgejo
+       2	https://codefloe.com/philipp-baumann/agentic-tooling-and-configs/pulls/415
+       3	codefloe.com
+       4	philipp-baumann/agentic-tooling-and-configs
+       5	415
+       6	tea
+  armed copy output='' exit=0

@@ -1,0 +1,15 @@
+# Live generated ship briefs (bin/fm-brief.sh --forge forgejo) follow the project's registered Forgejo CLI
+
+## project 'agents-cfg' registered forge=forgejo:fgj -> the brief names fgj
+  29:3. Use fgj for Forgejo operations and chrome-devtools-axi for browser operations.
+  99:When it is implemented and committed, push your branch and open a PR with `fgj` that is ready for review, not a draft.
+  100:Before you report done, read the PR back from the forge and confirm it is not a draft (`fgj api repos/<owner>/<repo>/pulls/<number> --hostname <host>` must show `draft` as false, where <owner>/<repo>, <number>, and <host> come from your PR URL); Forgejo marks a draft by a work-in-progress title prefix such as `WIP:`, so if it is a draft, remove that prefix with `fgj api repos/<owner>/<repo>/pulls/<number> --hostname <host> -X PATCH -f title='<title without the prefix>'`.
+
+## project 'ameisen' registered bare forge=forgejo -> the brief keeps tea (auto is tea only)
+  29:3. Use tea for Forgejo operations and chrome-devtools-axi for browser operations.
+  99:When it is implemented and committed, push your branch and open a PR with `tea` that is ready for review, not a draft.
+  100:Before you report done, read the PR back from the forge and confirm it is not a draft (`tea api --repo <owner>/<repo> /repos/{owner}/{repo}/pulls/<number>` must show `draft` as false, where <owner>/<repo> and <number> come from your PR URL); Forgejo marks a draft by a work-in-progress title prefix such as `WIP:`, so if it is a draft, remove that prefix with `tea pulls edit <number> --repo <owner>/<repo> --title '<title without the prefix>'`.
+
+## project 'fjproj' registered forge=forgejo:fj -> no brief is shipped
+  error: project 'fjproj' resolves to forgejo-cli (fj), but fj exposes no authenticated request passthrough and cannot bind a merge to a verified head, so firstmate cannot ship this task; the project's registry binding names forge=forgejo:fj, so register forge=forgejo:tea or forge=forgejo:fgj (or drop the CLI to leave the project on tea) in data/projects.md (docs/forgejo-cli-alternatives.md)
+  exit=1  brief file present: no

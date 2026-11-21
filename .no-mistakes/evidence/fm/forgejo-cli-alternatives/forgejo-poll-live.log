@@ -1,0 +1,11 @@
+# Live watcher body (bin/fm-pr-poll.sh) against the real codefloe.com instance
+# real CLIs on PATH: tea (logged in for codefloe.com), fj (logged in for codefloe.com), fgj (installed, no login)
+
+merged PR: https://codefloe.com/spectral-cockpit/ameisen/pulls/41  (head 81def787f626fb9677a865b038a21eedfa5ef76c)
+open PR:   https://codefloe.com/philipp-baumann/agentic-tooling-and-configs/pulls/415
+
+fm-pr-poll.sh --validated forgejo <merged PR> codefloe.com spectral-cockpit/ameisen 41 auto -> output='merged' exit=0
+fm-pr-poll.sh --validated forgejo <merged PR> codefloe.com spectral-cockpit/ameisen 41 tea  -> output='merged' exit=0
+fm-pr-poll.sh --validated forgejo <merged PR> codefloe.com spectral-cockpit/ameisen 41 fj   -> output='' (silent) exit=0
+fm-pr-poll.sh --baseline  forgejo <merged PR> ... fj       -> exit=3 (3 = cannot read, reported as unknown to arming)
+fm-pr-poll.sh --validated forgejo <open PR> ... auto       -> output='' (silent: still open, no wake) exit=0
