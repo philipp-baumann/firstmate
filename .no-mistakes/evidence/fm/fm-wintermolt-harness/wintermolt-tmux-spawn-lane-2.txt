@@ -1,0 +1,45 @@
+rg: regex parse error:
+    (?:{TASK})
+       ^
+error: repetition operator missing expression
+== spawn
+SPAWN-EXIT=0
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.mjvpfc
+spawned demo1 harness=wintermolt kind=ship mode=local-only yolo=off window=firstmate:fm-demo1 worktree=/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.mjvpfc/treehouse/.treehouse/demo-00217d/1/demo
+TARGET=firstmate:fm-demo1
+firstmate:zsh fg=zsh
+firstmate:fm-demo1 fg=wintermolt
+primary:zsh fg=zsh
+== brief pointer reached the endpoint
+requests=1 user_messages=1
+user_message='Read the brief at /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.mjvpfc/data/demo1/launch-brief.md and follow it exactly.'
+ok - busy footer after the brief pointer
+== control plane: interrupt a proven-busy turn
+interrupt rc=0 out=fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.mjvpfc
+interrupt-delivered demo1 harness=wintermolt backend=tmux verified=agent-alive cancel=confirmed
+== data plane: a steer through fm-send.sh
+send rc=0 out=fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.mjvpfc
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the requested message WILL still be sent.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/philipp/.no-mistakes/worktrees/a81ff7279650/01M7ZJBN3ZN0AGVEDJ7RDSRMSM/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/philipp/.no-mistakes/worktrees/a81ff7279650/01M7ZJBN3ZN0AGVEDJ7RDSRMSM/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+== control plane: interrupt refused while idle
+pane_foreground_before_idle_interrupt=wintermolt
+idle_interrupt rc=1 out=fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.mjvpfc
+error: wintermolt Escape quits an idle TUI; interrupt requires a proven running turn (the pane shows no working footer)
+pane_foreground_after_idle_interrupt=wintermolt
+== control plane: exit
+exit rc=0 out=fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.mjvpfc
+stopped demo1 harness=wintermolt backend=tmux endpoint=firstmate:fm-demo1 worktree=/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.mjvpfc/treehouse/.treehouse/demo-00217d/1/demo
+pane_foreground_after_exit=zsh
+== requests after the lane
+requests=3 user_messages=5
+user_message='Read the brief at /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.mjvpfc/data/demo1/launch-brief.md and follow it exactly.'
+user_message='Read the brief at /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.mjvpfc/data/demo1/launch-brief.md and follow it exactly.'
+user_message=': Firstmate instruction waiting: list "$FM_TASK_INBOX"/*.msg in your \'demo1.inbox\' steering inbox, read and act on each in numeric order, then mv each into its handled/.'
+user_message='Read the brief at /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.mjvpfc/data/demo1/launch-brief.md and follow it exactly.'
+user_message=': Firstmate instruction waiting: list "$FM_TASK_INBOX"/*.msg in your \'demo1.inbox\' steering inbox, read and act on each in numeric order, then mv each into its handled/.'
+== done lab=/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.mjvpfc

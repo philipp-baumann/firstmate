@@ -1,0 +1,29 @@
+== 1. idle composer
+idle_composer=empty
+ok - idle composer reads empty
+== 2. identity detection
+pane_foreground=wintermolt detected=comm wintermolt
+ok - wintermolt identity detected
+== 3. ordinary payload with interior dashes, through the shipped submit
+payload1=WINTERMOLT-STEER-ALPHA report this text verbatim incl -dashes- here ok len=70
+submit_verdict1=empty
+busy_verdict1=busy wintermolt-regex
+composer_while_working=pending-unproven
+== 4. option-shaped payload (leading dash), through the shipped submit
+payload2=-v WINTERMOLT-STEER-BETA leading dash payload verbatim len=54
+submit_verdict2=empty
+== 5. what the model endpoint received
+requests=3 user_messages=4
+user_message='WINTERMOLT-STEER-ALPHA report this text verbatim incl -dashes- here ok'
+user_message='WINTERMOLT-STEER-ALPHA report this text verbatim incl -dashes- here ok'
+user_message='-v WINTERMOLT-STEER-BETA leading dash payload verbatim'
+== 6. interrupt on the busy turn, then exit
+busy footer seen before interrupt
+escape sent
+ok - interrupt returned the ready footer
+composer_after_interrupt=empty
+pane_foreground_after_interrupt=wintermolt
+== 7. exit through the shipped submit core
+quit_verdict=unknown
+pane_foreground_after_quit=zsh
+== done lab=/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T//fm-wmlive.0pLiMQ

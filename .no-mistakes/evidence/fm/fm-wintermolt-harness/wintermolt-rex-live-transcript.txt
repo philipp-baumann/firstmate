@@ -1,0 +1,39 @@
+# private rex session session:01a1ff64-88e5-7c5f-a7df-5e63a842b0bb endpoint unix:///private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-rex-test.JYy5CA/rex.sock
+# wintermolt block target 01a1ff64-88e5-7c5f-a7df-5e63a842b0bb:01a1ff64-8942-7d98-81d3-4818fa9c8f2d
+ok - rex: the wintermolt TUI renders in a rex block
+ok - rex: the idle composer classifies empty through the shipped rex read
+foreground_owner=wintermolt
+rendered_busy_state=idle
+submit_verdict=empty
+busy_after_submit=busy
+new_requests=1 user_messages=1
+user_message='Read the brief at /tmp/fm-wmlive/data/t1/launch-brief.md and follow it exactly.'
+1:window=01a1ff64-88e5-7c5f-a7df-5e63a842b0bb:01a1ff64-8942-7d98-81d3-4818fa9c8f2d
+2:endpoint_task_id=t1
+3:worktree=/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-rex-test.JYy5CA
+4:project=/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-rex-test.JYy5CA
+5:harness=wintermolt
+6:yolo=off
+7:kind=ship
+8:mode=no-mistakes
+9:model=default
+10:effort=default
+11:backend=rex
+12:rex_server=unix:///private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-rex-test.JYy5CA/rex.sock
+13:rex_session_id=session:01a1ff64-88e5-7c5f-a7df-5e63a842b0bb
+14:rex_window_id=window:01a1ff64-8950-72e2-a06e-62ad0f98023a
+15:rex_block_id=block:01a1ff64-8942-7d98-81d3-4818fa9c8f2d
+interrupt rc=0 out=fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab-home.R16HxL
+interrupt-delivered t1 harness=wintermolt backend=rex verified=agent-alive cancel=confirmed
+busy_after_interrupt=idle
+composer_after_interrupt=empty
+agent_state_after_interrupt=alive
+idle_interrupt rc=1 out=fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab-home.R16HxL
+error: wintermolt Escape quits an idle TUI; interrupt requires a proven running turn (the pane shows no working footer)
+agent_state_after_idle_interrupt=alive
+exit rc=0 out=fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab-home.R16HxL
+stopped t1 harness=wintermolt backend=rex endpoint=01a1ff64-88e5-7c5f-a7df-5e63a842b0bb:01a1ff64-8942-7d98-81d3-4818fa9c8f2d worktree=/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-rex-test.JYy5CA
+agent_state_after_exit=dead
+block_presence_after_exit=present
+ok - real rex: all state-changing calls stayed within this run's private server
+# done

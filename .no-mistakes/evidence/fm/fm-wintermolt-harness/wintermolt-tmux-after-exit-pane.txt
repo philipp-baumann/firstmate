@@ -1,0 +1,24 @@
+cd /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlive.wVlt3Q/wor
+k && wintermolt
+
+󰀵 philipp …/T/fm-wmlive.wVlt3Q/work   19:34  ❯ cd /private/var/folders/4
+7/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlive.wVlt3Q/work && wintermolt
+[config] No keys needed — the default backend is free local Ollama. Optional: 'w
+intermolt --setup' for cloud API keys. Set WINTERMOLT_CONFIG_VERSION=1 in .env t
+o hide this.
+[mcp-client] No config at /Users/philipp/.wintermolt/mcp.json
+[backend] Switched to OpenAI (stub-model)
+Goodbye.
+
+󰀵 philipp …/T/fm-wmlive.wVlt3Q/work   19:34   in 28s26ms ❯
+
+
+
+
+
+
+
+
+
+
+

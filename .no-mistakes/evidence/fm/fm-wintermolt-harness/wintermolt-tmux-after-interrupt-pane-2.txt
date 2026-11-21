@@ -1,0 +1,12 @@
+│                                                                            █ │
+│ [Error] The model returned an empty reply twice                            █ │
+│ > start a slow turn please                                                 █ │
+│ [openai] request: 6290 bytes (~2k tokens est)                              █ │
+│ (stopping…)                                                                █ │
+│                                                                            █ │
+│ [Stopped]                                                                  █ │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│  Type a message, or /help                                                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ Enter send  ↑↓ PgUp/PgDn scroll  Esc quit       openai · stub-model  ● ready

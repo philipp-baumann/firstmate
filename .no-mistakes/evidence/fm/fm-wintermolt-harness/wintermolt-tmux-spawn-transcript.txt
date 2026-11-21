@@ -1,0 +1,50 @@
+== spawn log
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home
+warning: /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/data/probe1/launch-brief.md records no ship branch; defaulting to legacy branch fm/probe1
+notice: probe1 ships mode=local-only while the standing posture for demo is no-mistakes - less rigor than the captain's standing posture; proceed only on a current explicit captain instruction or an intake judgment you can state
+spawned probe1 harness=wintermolt kind=ship mode=local-only yolo=off window=primary:fm-probe1 worktree=/Users/philipp/.treehouse/demo-617def/1/demo
+SPAWN-EXIT=0
+== windows
+fm-primary fg=zsh
+fm-probe1 fg=wintermolt
+== task meta
+window=primary:fm-probe1
+endpoint_task_id=probe1
+worktree=/Users/philipp/.treehouse/demo-617def/1/demo
+project=/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/projects/demo
+harness=wintermolt
+kind=ship
+mode=local-only
+yolo=off
+branch=fm/probe1
+tasktmp=/tmp/fm-probe1
+model=default
+effort=default
+spawn_gen=s1795286289.98411.23300
+task_window=fm-probe1
+│                                                                            █ │
+│                                                                            █ │
+│                                                                            █ │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│  working… (Esc stops, Ctrl+C quits)                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ Enter send  ↑↓ PgUp/PgDn scroll  Esc stop     openai · stub-model  ⠸ working
+== model endpoint
+requests=1 user_messages=1
+user_message='Read the brief at /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/data/probe1/launch-brief.md and follow it exactly.'
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/pre-rebase': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/pre-applypatch': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/pre-auto-gc': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/pre-merge-commit': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/post-commit': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/sendemail-validate': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/applypatch-msg': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/prepare-commit-msg': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/post-checkout': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/post-applypatch': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/post-rewrite': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/commit-msg': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/pre-push': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/post-merge': Permission denied
+rm: cannot remove '/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/state/probe1.git-hooks/pre-commit': Permission denied

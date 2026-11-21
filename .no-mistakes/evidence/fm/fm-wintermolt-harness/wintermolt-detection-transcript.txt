@@ -1,0 +1,7 @@
+pane_foreground=wintermolt
+wintermolt_pids=90407 
+ancestry_descent_from_90407=comm wintermolt
+ancestry_from_90407=comm wintermolt
+ancestry_of_unrelated_sleep=comm pi
+/tmp/fm-wm-lab/detect.sh: line 26: 90454 Terminated: 15          sleep 30
+pane_pid_ancestry=

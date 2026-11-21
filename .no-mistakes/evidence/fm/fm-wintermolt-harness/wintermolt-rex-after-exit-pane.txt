@@ -1,0 +1,11 @@
+Last login: Sat Nov 21 19:35:41 on ttys006
+WINTERMOLT_BACKE%
+
+󰀵 philipp …/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-rex-test.JYy5CA   19:35  ❯ WINTERMOLT_BACKEND=openai WINTERMOLT_OPENAI_URL=http://127.0.0.1:8917/v1/chat/completions OPENAI_API_KEY=stub-key WIN
+TERMOLT_MODEL=stub-model WINTERMOLT_NO_FALLBACK=1 wintermolt
+[config] No keys needed — the default backend is free local Ollama. Optional: 'wintermolt --setup' for cloud API keys. Set WINTERMOLT_CONFIG_VERSION=1 in .env to hide this.
+[mcp-client] No config at /Users/philipp/.wintermolt/mcp.json
+[backend] Switched to OpenAI (stub-model)
+Goodbye.
+
+󰀵 philipp …/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-rex-test.JYy5CA   19:36   in 31s855ms ❯

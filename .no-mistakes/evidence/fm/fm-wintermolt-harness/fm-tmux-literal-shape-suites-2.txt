@@ -1,0 +1,18 @@
+No-mistakes test phase, 2026-11-21: targeted suites on 0d4db496.
+
+PASS  tests/fm-wintermolt-harness.test.sh        exit=0  (incl. "a short wintermolt steer beginning with a dash is delivered")
+PASS  tests/fm-tmux-submit-busy.test.sh          exit=0
+PASS  tests/fm-backend-rex.test.sh               exit=0  (incl. pre-typing-baseline and fragment/replay cases)
+PASS  tests/fm-send-strict.test.sh               exit=0  (was red before the round-1 literal-shape fix)
+PASS  tests/fm-send-inbox.test.sh                exit=0  (was red before the round-1 literal-shape fix)
+PASS  tests/fm-task-inbox.test.sh                exit=0  (was red before the round-1 literal-shape fix)
+PASS  tests/fm-send-resolve-key.test.sh          exit=0  (was red before the round-1 literal-shape fix)
+PASS  tests/fm-wintermolt-signals-live-e2e.test.sh exit=0 (real wintermolt 0.7.0 TUI, local stub backend)
+
+Pre-existing failures, reproduced identically on base commit 427056c (NOT caused by this branch):
+FAIL  tests/fm-composer-lib.test.sh  "multiword named claude idle on herdr: expected empty, got 'unknown'"
+      base comparison: base bin/fm-composer-lib.sh gives the same 'unknown' for the same screen.
+FAIL  tests/fm-control.test.sh       "Hermes gateway diagnostic missing"
+      base comparison: bin/fm-hermes-lib.sh:25 "${args[@]}" aborts under bash 3.2 set -u; file unchanged by this branch.
+FAIL  tests/fm-backend-rex-smoke.test.sh "a session lost at server stop must be proven missing after the private server recovers"
+      reproduced at base commit: same not-ok line.

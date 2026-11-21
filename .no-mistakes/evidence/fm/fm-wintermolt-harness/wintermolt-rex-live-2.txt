@@ -1,0 +1,42 @@
+# private rex session session:01a1ff80-b79d-745d-88d7-0db4f798bb30 endpoint unix:///private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-rex-test.2eHdNV/rex.sock
+# block target 01a1ff80-b79d-745d-88d7-0db4f798bb30:01a1ff80-b800-784d-9432-74152c793146 window window:01a1ff80-b80f-7236-bde4-88a1c6eb868e
+launch_line=env WINTERMOLT_BACKEND=openai WINTERMOLT_OPENAI_URL=http://127.0.0.1:59062/v1/chat/completions OPENAI_API_KEY=stub-key WINTERMOLT_MODEL=stub-model WINTERMOLT_NO_FALLBACK=1 wintermolt
+ok - rex: the idle wintermolt composer reads empty through the shipped scoped read
+foreground_owner=wintermolt
+rendered_busy_state=idle
+agent_state=alive
+payload=REX-STEER-DELTA report this text verbatim len=41
+submit_verdict=empty
+rendered_busy_state_after_submit=busy
+composer_while_working=pending-unproven
+│                                                                            █ │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│  working… (Esc stops, Ctrl+C quits)                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ Enter send  ↑↓ PgUp/PgDn scroll  Esc stop     openai · stub-model  ⠇ working
+requests=1 user_messages=1
+user_message='REX-STEER-DELTA report this text verbatim'
+== interrupt the busy turn through the control plane
+interrupt rc=0 out=fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-rex-labhome.j99TYt
+interrupt-delivered wm1 harness=wintermolt backend=rex verified=agent-alive cancel=confirmed
+rendered_busy_state_after_interrupt=idle
+composer_after_interrupt=empty
+agent_state_after_interrupt=alive
+│                                                                            █ │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│  Type a message, or /help                                                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ Enter send  ↑↓ PgUp/PgDn scroll  Esc quit       openai · stub-model  ● ready
+== interrupt refused on the idle pane
+idle_interrupt rc=1 out=fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-rex-labhome.j99TYt
+error: wintermolt Escape quits an idle TUI; interrupt requires a proven running turn (the pane shows no working footer)
+agent_state_after_idle_interrupt=alive
+== exit through the control plane
+exit rc=0 out=fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-rex-labhome.j99TYt
+stopped wm1 harness=wintermolt backend=rex endpoint=01a1ff80-b79d-745d-88d7-0db4f798bb30:01a1ff80-b800-784d-9432-74152c793146 worktree=/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-rex-test.2eHdNV/ws
+agent_state_after_exit=dead
+ok - real rex: all state-changing calls stayed within this run's private server
+== done
+./rex-live.sh: line 9: 94698 Terminated: 15          python3 /tmp/fm-testlab/stub.py "$REQ" 6 > "$REX_TEST_WORK/port" 2> "$REX_TEST_WORK/stub.err"

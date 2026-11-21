@@ -1,0 +1,13 @@
+# block target 01a1ff65-4bd4-755b-bbc4-c9b1ba0e6373:01a1ff65-4c32-74e5-ae66-2e6e7f589005 sized 80x50 (a narrow task tab)
+ok - rex: the narrow block's idle composer reads empty
+payload_len=242 visible_row_chars=80-7=73
+submit_verdict_for_overwide_payload=send-failed
+typed_state_after=other
+composer_state_after=pending
+rendered_busy_state_after=idle
+model_requests_before=0 after=0
+ok - rex: an over-wide payload is reported send-failed
+ok - rex: no Enter was pressed, so no turn started
+ok - rex: the TUI is still idle after the refusal
+ok - real rex: all state-changing calls stayed within this run's private server
+# done

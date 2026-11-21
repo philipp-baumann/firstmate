@@ -1,0 +1,5 @@
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home
+warning: /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV/home/data/probe1/launch-brief.md records no ship branch; defaulting to legacy branch fm/probe1
+notice: probe1 ships mode=local-only while the standing posture for demo is no-mistakes - less rigor than the captain's standing posture; proceed only on a current explicit captain instruction or an intake judgment you can state
+spawned probe1 harness=wintermolt kind=ship mode=local-only yolo=off window=primary:fm-probe1 worktree=/Users/philipp/.treehouse/demo-617def/1/demo
+SPAWN-EXIT=0

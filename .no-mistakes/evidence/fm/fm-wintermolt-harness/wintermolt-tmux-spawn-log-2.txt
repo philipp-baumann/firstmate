@@ -1,0 +1,2 @@
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.MR10lr
+spawned demo1 harness=wintermolt kind=ship mode=local-only yolo=off window=firstmate:fm-demo1 worktree=/private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmlab.MR10lr/treehouse/.treehouse/demo-b11113/1/demo

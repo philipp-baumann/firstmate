@@ -1,0 +1,32 @@
+treehouse get
+
+󰀵 philipp …/demo   main   19:38  ❯ treehouse get
+A new version of treehouse is available: v2.3.0 → v3.1.8
+Run "treehouse update" to update
+
+🌳 Setting up worktree...
+🌳 Entered worktree at ~/.treehouse/demo-617def/1/demo. Type 'exit' to return.
+ wintermolt v0.7.0 — Lite AI Agent CLI …                                WORKING
+╭─ Transcript ─────────────────────────────────────────────────────────────────╮
+│   _       _______   __________________  __  _______  __  ______            █ │
+│  | |     / /  _/ | / /_  __/ ____/ __ \/  |/  / __ \/ / /_  __/            █ │
+│  | | /| / // //  |/ / / / / __/ / /_/ / /|_/ / / / / /   / /               █ │
+│  | |/ |/ // // /|  / / / / /___/ _, _/ /  / / /_/ / /___/ /                █ │
+│  |__/|__/___/_/ |_/ /_/ /_____/_/ |_/_/  /_/\____/_____/_/                 █ │
+│   Type /help for commands. Esc stops a reply; with none running, Esc,      █ │
+│ Ctrl+C or /quit exits. PgUp/PgDn or the mouse wheel scroll.                █ │
+│                                                                            █ │
+│ > Read the brief at                                                        █ │
+│ /private/var/folders/47/c2r7jpcs7dl3jgy_8yb398kw0000gn/T/fm-wmspawn3.1ddUxV█ │
+│ /home/data/probe1/launch-brief.md and follow it exactly.                   █ │
+│ [openai] request: 6922 bytes (~2k tokens est)                              █ │
+│                                                                            █ │
+│                                                                            █ │
+│                                                                            █ │
+│                                                                            █ │
+│                                                                            █ │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│  working… (Esc stops, Ctrl+C quits)                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ Enter send  ↑↓ PgUp/PgDn scroll  Esc stop     openai · stub-model  ⠸ working
