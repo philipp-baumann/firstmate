@@ -1,0 +1,25 @@
+# Live packing of the merged runner (bin/fm-test-run.sh at b7619e4a)
+$ bin/fm-test-run.sh --check-coverage
+FM_TEST_COVERAGE ok total=344 parallel=27 parallel_max_ms=1243475 parallel_imbalance_ms=213 parallel_unhinted=0 serial=301 serial_shards=19 serial_unhinted=0 serial_max_ms=940120 serial_budget_ms=900000 herdr=16
+
+# Family classification of both new Wintermolt suites
+$ --list --family pure-contract-unit | grep wintermolt -> tests/fm-wintermolt-harness.test.sh
+tests/fm-wintermolt-harness.test.sh
+$ --list --family live-harness-optin | grep wintermolt -> tests/fm-wintermolt-signals-live-e2e.test.sh
+tests/fm-wintermolt-signals-live-e2e.test.sh
+
+# Shard placement across the 19 portable serial shards (each suite in exactly one shard)
+shard 4: tests/fm-wintermolt-signals-live-e2e.test.sh
+shard 16: tests/fm-wintermolt-harness.test.sh
+
+# Determinism: two full packings of all 19 shards are byte-identical
+DETERMINISTIC: two packings identical (301 assignments)
+
+# Conflict-resolution identity: ci.yml and docs/fm-test-portable-shards.md are byte-identical to main (68918448)
+(empty diff above = identical to main)
+
+# No conflict markers anywhere in the tree
+rg: unrecognized flag --include
+
+# No conflict markers anywhere in the tree
+/usr/bin/grep -rln -e "^<<<<<<<" -e "^>>>>>>>" -e "^=======$" --include="*.sh" --include="*.yml" --include="*.md" --include="*.tsv" . -> no matches (rc=1)

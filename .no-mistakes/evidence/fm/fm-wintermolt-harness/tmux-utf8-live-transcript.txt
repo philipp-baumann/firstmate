@@ -1,0 +1,19 @@
+# Live drive: fm_tmux_type_literal chunked write under LC_ALL=C against a real tmux 3.8 server
+# Product: bin/fm-tmux-lib.sh at b7619e4a (UTF-8 continuation-byte boundary guard, commit 1a1b7d02)
+# Setup: throwaway private tmux socket in a mktemp dir; the payload 'abcdef–ghij'
+# puts the 3-byte en dash (U+2013) across the 8-byte chunk boundary at offset 6.
+
+$ tmux -L fmlab new-session -d -s t -x 200 -y 50
+$ sock=$(tmux -L fmlab display-message -p -t t '#{socket_path}')
+$ LC_ALL=C TMUX="$sock,99999,0" bash -c \
+    '. "$0/bin/fm-tmux-lib.sh" && fm_tmux_type_literal "$1" "$2" "$3"' \
+    "$PWD" t 'abcdef–ghij' 8
+TYPE_RC_OK
+$ tmux -L fmlab capture-pane -p -t t
+abcdef–%
+ philipp …/01M89R6V3K56ZSTVQG9XMRPDV1  HEAD  17:47  ❯ abcdef–ghij
+
+LIVE PASS: multibyte payload intact through real tmux under LC_ALL=C with chunk=8
+(the `–%` line is the shell's soft-wrap artifact; the prompt's echoed input line
+carries the full payload, so no chunk split the en dash mid-character)
+$ tmux -L fmlab kill-server ; rm -rf "$LAB"
