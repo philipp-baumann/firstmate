@@ -1,0 +1,22 @@
+# Live Forgejo CLI selection evidence at head 3bcec62f
+
+## fm_pr_forgejo_resolve against the machine's real CLI stores
+fgj opt-in: rc=0 cli=fgj login=codefloe.com
+auto: rc=0 cli=tea login=codefloe.com
+explicit tea: rc=0 cli=tea login=codefloe.com
+fgj on a tea-only host: rc=1 cli= login= (refused, no fallback)
+unknown cli binding: rc=1
+fj opt-in: rc=0 cli=fj login=codefloe.com
+fj api-capable: refused (exit 1) - fj can never serve the record
+
+## Live record read of real open PR Vidocq/vidocq#866 on codefloe.com
+fgj read: rc=0 state=open merged=false head=edebc6d72d441200af0a1b30fd395edbb1dd71e4
+tea (auto) read: rc=0 state=open merged=false head=edebc6d72d441200af0a1b30fd395edbb1dd71e4
+
+## Raw fgj api view used by the merge path (fgj api, the verified passthrough)
+{"state":"open","merged":false,"head":"edebc6d72d441200af0a1b30fd395edbb1dd71e4"}
+
+## fgj manual-PR DOD subcommands, verified against the installed fgj help
+fgj pr list --help: exit 0
+fgj pr edit --help: exit 0 (flags: 2 of --title/--body-file present)
+fgj pr create --help: exit 0

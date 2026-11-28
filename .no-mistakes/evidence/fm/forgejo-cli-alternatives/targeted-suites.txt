@@ -1,0 +1,18 @@
+# Targeted suite results at head 3bcec62f (2026-11-28T09:48:01Z)
+
+Run 1 - tests/fm-pr-merge.test.sh (full suite, 146 tests) with a real jq ahead of the host's mise jq shim:
+FM_TEST_END 2026-11-28T09:08:49Z tests/fm-pr-merge.test.sh exit=0 duration_ms=1017733 gate_skip=false
+
+Run 2 - five targeted suites with BSD stat and real jq ahead of the host's nix GNU stat and mise jq shim:
+FM_TEST_END 2026-11-28T09:24:12Z tests/fm-brief.test.sh exit=0 duration_ms=27958 gate_skip=false
+FM_TEST_END 2026-11-28T09:24:14Z tests/fm-project-mode.test.sh exit=0 duration_ms=1426 gate_skip=false
+FM_TEST_END 2026-11-28T09:24:35Z tests/fm-dod-lib.test.sh exit=0 duration_ms=21997 gate_skip=false
+FM_TEST_END 2026-11-28T09:26:17Z tests/fm-task-delivery.test.sh exit=0 duration_ms=124172 gate_skip=false
+FM_TEST_END 2026-11-28T09:39:54Z tests/fm-pr-check-security.test.sh exit=0 duration_ms=817579 gate_skip=false
+FM_TEST_SUMMARY total=5 failed=0 skipped_gate=0 duration_ms=970288
+FM_TEST_SUMMARY_FAMILY family=pr-forge count=1 duration_ms=817579 failed=0
+FM_TEST_SUMMARY_FAMILY family=pure-contract-unit count=4 duration_ms=175553 failed=0
+
+## Host artifacts ruled out as regressions (identical mechanism on base a5225cfa)
+- mise jq shim: under the suites' fake HOME the shim fails ('config not trusted') whenever cwd is under the user's home tree; it works from /tmp. The head's own test_github_updated_head_other_refusals_stop_waiting fails from a home-rooted cwd and passes byte-identically from a /tmp git-archive of the same head; run 1 above passes the whole suite with a real jq first.
+- GNU coreutils stat first on PATH (nix profile) breaks the suite's Darwin file_mode branch 'stat -f %Lp': GNU stat -f prints live filesystem stats (free blocks), so the poll-artifact snapshot differed between reads while the poll files stayed byte-identical. test_external_merge_transition_retires_only_terminal_poll passes with /usr/bin/stat (BSD) first; the file_mode helper is unchanged from base a5225cfa (tests/fm-pr-check-security.test.sh:43).
